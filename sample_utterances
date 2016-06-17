@@ -3,4 +3,6 @@ DateNightIntent where we should go for {Activity} in {City}
 DateNightIntent what we should do for {Activity} in {City}
 DateNightIntent what should we do for {Activity} in {City}
 DateNightIntent for {Activity} advice in {City}
-DateNightIntent for {Activity} suggestion in {City}
+DateNightIntent for a {Activity} suggestion in {City}
+DateNightIntent to give us {Activity} suggestion in {City}
+DateNightIntent to suggest {Activity} in {City}
