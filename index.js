@@ -127,6 +127,7 @@ Alexa.prototype.intentHandlers = {
 };
 
 exports.handler = function (event, context) {
+    console.log(event);
     console.log('Lambda starting...');
     var dateNight = new Alexa();
     dateNight.execute(event, context);
