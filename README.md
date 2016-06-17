@@ -1,5 +1,5 @@
 # Overview
-This is an [Alexa skill](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit) for getting suggestions on activities or restaurants in your city.  I originally created this Skill to help get a random suggestion for a date night with my beautiful girlfriend, Bridget.  The [activities.js](https://github.com/irlrobot/alexa_date_night/blob/master/activities.js) file holds all the recommendations, feel free to contribute your favorites with a Pull Request or by opening an Issue!
+This is an [Alexa skill](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit) for getting random, crowdsourced suggestions on activities or restaurants in your city.  I originally created this Skill to help get a random suggestion for a date night with my beautiful girlfriend, Bridget, so neither of us had to choose.  The [activities.js](https://github.com/irlrobot/alexa_date_night/blob/master/activities.js) file holds all the recommendations, feel free to contribute your favorites with a Pull Request or by opening an Issue!
 
 # Sample Utterances
 Examples of things you can say:
