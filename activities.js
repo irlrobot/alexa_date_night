@@ -29,7 +29,7 @@ module.exports = {
         "Wabash Tap, 1233 South Wabash Ave, Chicago Illinois, 60605"
       ],
       "outdoor activity": [
-        "Grant Park, 337 East Randolph St, Chicago Illinois, 60601 "
+        "Grant Park, 337 East Randolph St, Chicago Illinois, 60601"
       ],
       "indoor activity": [
         "UIC Bowling Alley, 750 South Halsted St, Chicago Illinois, 60607"
