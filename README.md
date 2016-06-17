@@ -3,10 +3,11 @@ This is an [Alexa skill](https://developer.amazon.com/public/solutions/alexa/ale
 
 # Sample Utterances
 Examples of things you can say:
-* "Alexa, ask Date Night to give us a dinner suggestion in Chicago."
+* "Alexa, ask Date Night to give us a brunch suggestion in Chicago."
 * "Alexa, ask Date Night where should we go for dinner in Chicago?"
 * "Alexa, ask Date Night for an outdoor activity suggestion in Chicago."
 * "Alexa, ask Date Night to suggest lunch in Chicago."
+* "Alexa, ask Date Night to suggest a free activity in Chicago."
 
 ## Supported Cities
 * Chicago
