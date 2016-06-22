@@ -21,6 +21,7 @@ Examples of things you can say:
 * sports bar
 * dive bar
 * upscale bar
+* brewery
 * outdoor activity
 * indoor activity
 * free activity
