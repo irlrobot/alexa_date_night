@@ -24,7 +24,7 @@ Alexa.prototype.constructor = Alexa;
 Alexa.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     var speechText = "Hello, Date Night can you help find an activity or \
       restaurant. You can ask for a suggestion like, where should we go for \
-      brunch in Chicago? or for an outdoor activity suggestion in Chicago? \
+      brunch in Chicago? or suggest an outdoor activity in Chicago? \
       ... Now, what can I help you with?";
     // If the user either does not reply to the welcome message or says something that is not
     // understood, they will be prompted again with this text.
@@ -41,8 +41,8 @@ Alexa.prototype.intentHandlers = {
             selection,
             speechOutput,
             repromptOutput = {
-                speech: "You can try asking me where you should go for \
-                  dinner in Chicago as an example.",
+                speech: "You can try asking me, where should we go for \
+                  dinner in Chicago?, as an example.",
                 type: AlexaSkill.speechOutputType.PLAIN_TEXT
             },
             cardTitle = "Date Night Suggestion";
@@ -109,10 +109,10 @@ Alexa.prototype.intentHandlers = {
     "AMAZON.HelpIntent": function (intent, session, response) {
         console.log('HelpIntent starting...');
         var speechText = "You can ask me for suggestions on activities in \
-        your city. For example, try asking me, where should we go for a dive bar \
-        in Chicago? ..., or, you can say exit... Now, what can I help you find?";
-        var repromptText = "You can say things like, what activity in Chicago \
-          should we do? ..., or, you can say exit... Now, what can I help you with?";
+          your city. For example, try asking me, where should we go for a dive bar \
+          in Chicago? ..., or, you can say exit... Now, what can I help you find?";
+        var repromptText = "You can say things like, suggest lunch in Chicago... \
+          , or, you can say exit... Now, what can I help you with?";
         var speechOutput = {
             speech: speechText,
             type: AlexaSkill.speechOutputType.PLAIN_TEXT
