@@ -1,8 +1,9 @@
 var Alexa = require('alexa-sdk');
-  APP_ID = "amzn1.echo-sdk-ams.app.24d90ad8-0518-4495-b96d-2a77833245b1";
-  SKILL_NAME = "Date Night";
-  enUsHandlers = require('./handlers/en-us.handler');
-  lyrics = require('./modules/lyrics');
+    APP_ID = "amzn1.echo-sdk-ams.app.24d90ad8-0518-4495-b96d-2a77833245b1";
+    SKILL_NAME = "Date Night";
+    enUsHandlers = require('./handlers/en-us.handler');
+    cuisines = require('./modules/cuisines');
+    phrases = require('./modules/phrases')
 
 exports.handler = function(event, context, callback) {
   console.log("Starting Date Night...");

@@ -1,18 +1,20 @@
 module.exports = {
   'LaunchRequest': function () {
     console.log("LaunchRequest fired...");
-    this.emit('PPAPIntent');
+    this.emit('DateNightIntent');
   },
-  'PPAPIntent': function () {
-    console.log("PPAPIntent fired...");
-    this.emit(':tellWithCard', lyrics, SKILL_NAME, 'https://www.youtube.com/watch?v=HFlgNoUsr4k');
+  'DateNightIntent': function () {
+    console.log("DateNightIntent fired...");
+    var cuisine = cuisines[Math.floor(Math.random()*cuisines.length)];
+        speech = phrases[Math.floor(Math.random()*cuisines.length)] + cuisine;
+    this.emit(':tellWithCard', speech, SKILL_NAME, cuisine);
   },
   'AMAZON.CancelIntent': function () {
     console.log("CancelIntent fired...");
-    this.emit(':tell', 'Pen Pineapple Apple Pen!');
+    this.emit(':tell', 'Goodbye.');
   },
   'AMAZON.StopIntent': function () {
     console.log("StopIntent fired...");
-    this.emit(':tell', 'Pen Pineapple Apple Pen!');
+    this.emit(':tell', 'Goodbye.');
   }
 };

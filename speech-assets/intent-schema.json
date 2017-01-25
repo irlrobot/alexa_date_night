@@ -1,16 +1,7 @@
 {
   "intents":[
     {
-        "intent": "DateNightIntent",
-        "slots": [
-          {
-            "name" : "Activity",
-            "type": "Activity"
-          }
-        ]
-    },
-    {
-        "intent": "AMAZON.HelpIntent"
+        "intent": "DateNightIntent"
     },
     {
         "intent": "AMAZON.StopIntent"
