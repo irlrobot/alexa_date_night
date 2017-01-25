@@ -4,10 +4,6 @@
         "intent": "DateNightIntent",
         "slots": [
           {
-            "name" : "City",
-            "type": "City"
-          },
-          {
             "name" : "Activity",
             "type": "Activity"
           }
