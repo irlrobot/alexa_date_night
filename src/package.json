@@ -1,0 +1,29 @@
+{
+  "name": "Date Night",
+  "version": "2.0.0",
+  "description": "Let Alexa decide where you're going for Date Night!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "activity",
+    "activities",
+    "date",
+    "dates",
+    "restaurants",
+    "fun",
+    "datenight",
+    "girlfriend",
+    "boyfriend",
+    "husband",
+    "wife",
+    "spouse",
+    "partner"
+  ],
+  "author": "josh campbell",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "alexa-sdk": "^1.0.6"
+  }
+}
