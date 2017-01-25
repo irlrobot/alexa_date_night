@@ -3,7 +3,7 @@ var Alexa = require('alexa-sdk');
     SKILL_NAME = "Date Night";
     enUsHandlers = require('./handlers/en-us.handler');
     cuisines = require('./modules/cuisines');
-    phrases = require('./modules/phrases')
+    phrases = require('./modules/phrases');
 
 exports.handler = function(event, context, callback) {
   console.log("Starting Date Night...");
