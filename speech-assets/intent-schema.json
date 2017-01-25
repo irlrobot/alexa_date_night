@@ -1,0 +1,26 @@
+{
+  "intents":[
+    {
+        "intent": "DateNightIntent",
+        "slots": [
+          {
+            "name" : "City",
+            "type": "City"
+          },
+          {
+            "name" : "Activity",
+            "type": "Activity"
+          }
+        ]
+    },
+    {
+        "intent": "AMAZON.HelpIntent"
+    },
+    {
+        "intent": "AMAZON.StopIntent"
+    },
+    {
+        "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
