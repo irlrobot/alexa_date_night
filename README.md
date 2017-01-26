@@ -1,30 +1,9 @@
 # Overview
-This is an [Alexa skill](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit) for getting random, crowdsourced suggestions on activities or restaurants in your city.  I originally created this Skill to help get a random suggestion for a date night with my beautiful girlfriend, Bridget, so neither of us had to choose.  The [activities.js](https://github.com/irlrobot/alexa_date_night/blob/master/activities.js) file holds all the recommendations, feel free to contribute your favorites with a Pull Request or by opening an Issue!
+This is an  for Let Alexa decide where you're going for [Date Night](https://www.amazon.com/Josh-Campbell-Date-Night/dp/B01H7ICBEA/)!  This [skill](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit) currently supports giving you a random cuisine as an idea for a restaurant to go to.  In future versions, Date Night will suggest other activities and specific places based on your location.
 
-# Sample Utterances
-Examples of things you can say:
-* "Alexa, ask Date Night to give us a brunch suggestion in Chicago."
-* "Alexa, ask Date Night where should we go for dinner in Chicago?"
-* "Alexa, ask Date Night for an outdoor activity suggestion in Chicago."
-* "Alexa, ask Date Night to suggest lunch in Chicago."
-* "Alexa, ask Date Night to suggest a free activity in Chicago."
+Do you own a great place that Date Night can suggest to users?  Contact josh@userdel.com.
 
-## Supported Cities
-* Chicago
-
-## Supported activities
-* breakfast
-* lunch
-* brunch
-* dinner
-* dessert
-* sports bar
-* dive bar
-* upscale bar
-* brewery
-* outdoor activity
-* indoor activity
-* free activity
+This skill may not be suitable for all ages.
 
 # License
 Copyright 2016 Josh Campbell. All Rights Reserved.
