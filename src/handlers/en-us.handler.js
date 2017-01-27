@@ -6,10 +6,11 @@ module.exports = function (userId, ddbClient, ddbTable) {
     },
     'DateNightIntent': function () {
       console.log("DateNightIntent fired...");
-      var cuisine = cuisines[Math.floor(Math.random()*cuisines.length)];
-          speech = phrases[Math.floor(Math.random()*phrases.length)] + cuisine;
-      this.emit(':tellWithCard', speech, SKILL_NAME, cuisine);
+      var cuisine = getCuisine();
+          speech = getSpeech();
+
       writeNewSuggestions(ddbClient, ddbTable, userId, cuisine);
+      this.emit(':tellWithCard', speech + cuisine, SKILL_NAME, cuisine);
     },
     'AMAZON.CancelIntent': function () {
       console.log("CancelIntent fired...");
@@ -22,25 +23,33 @@ module.exports = function (userId, ddbClient, ddbTable) {
   };
 };
 
+var getCuisine = function() {
+  return cuisines[Math.floor(Math.random()*cuisines.length)];
+};
+
+var getSpeech = function() {
+  return phrases[Math.floor(Math.random()*phrases.length)];
+};
+
 var writeNewSuggestions = function(ddbClient, ddbTable, userId, cuisine) {
   var payload = {
-    TableName:ddbTable,
-    Key:{
-      "user_id": userId
+    Key: {
+      userId: userId
     },
-    UpdateExpression: "set last_suggestion.cuisine = :cuisine",
-    ExpressionAttributeValues:{
-      ":cuisine":cuisine,
+    TableName : ddbTable,
+    AttributeUpdates: {
+      last_cuisine: {
+        Action: 'PUT',
+        Value: cuisine
+      }
     },
-    ReturnValues:"UPDATED_NEW"
+    ReturnValues: 'UPDATED_NEW'
   };
 
   console.log("Adding new suggestions.  Payload:  " + JSON.stringify(payload));
   ddbClient.update(payload, function(err, data) {
-    if (err) {
-      console.error("Unable to update. Error:", JSON.stringify(err, null, 2));
-    } else {
-      console.log("Update succeeded:", JSON.stringify(data, null, 2));
-    }
+    console.log("ddbClient.update fired...");
+    if (err) console.error("Unable to update. Error:  ", JSON.stringify(err));
+    else console.log("Update succeeded:  ", JSON.stringify(data));
   });
 };
