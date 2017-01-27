@@ -9,8 +9,21 @@ module.exports = function (userId, ddbClient, ddbTable) {
       var cuisine = getCuisine();
           speech = getSpeech();
 
-      writeNewSuggestions(ddbClient, ddbTable, userId, cuisine);
-      this.emit(':tellWithCard', speech + cuisine, SKILL_NAME, cuisine);
+      var promise = new Promise(function(resolve, reject) {
+        var ddbWrite = writeNewSuggestions(ddbClient, ddbTable, userId, cuisine);
+
+        if (ddbWrite) {
+          resolve("Wrote new suggestion...");
+        }
+        else {
+          reject(Error("Failed to write new suggestion..."));
+        }
+      });
+      promise.then(function(result) {
+        this.emit(':tellWithCard', speech + cuisine, SKILL_NAME, cuisine);
+      }, function(err) {
+        this.emit(':tellWithCard', speech + cuisine, SKILL_NAME, cuisine);
+      });
     },
     'AMAZON.CancelIntent': function () {
       console.log("CancelIntent fired...");
@@ -49,7 +62,12 @@ var writeNewSuggestions = function(ddbClient, ddbTable, userId, cuisine) {
   console.log("Adding new suggestions.  Payload:  " + JSON.stringify(payload));
   ddbClient.update(payload, function(err, data) {
     console.log("ddbClient.update fired...");
-    if (err) console.error("Unable to update. Error:  ", JSON.stringify(err));
-    else console.log("Update succeeded:  ", JSON.stringify(data));
+    if (err) {
+      console.error("Unable to update. Error:  ", JSON.stringify(err));
+      return false;
+    } else {
+      console.log("Update succeeded:  ", JSON.stringify(data));
+      return true;
+    }
   });
 };
