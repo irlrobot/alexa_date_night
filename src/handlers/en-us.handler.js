@@ -6,22 +6,14 @@ module.exports = function (userId, ddbClient, ddbTable) {
     },
     'DateNightIntent': function () {
       console.log("DateNightIntent fired...");
+
       var cuisine = getCuisine();
           speech = getSpeech();
 
-      var promise = new Promise(function(resolve, reject) {
-        var ddbWrite = writeNewSuggestions(ddbClient, ddbTable, userId, cuisine);
-
-        if (ddbWrite) {
-          resolve("Wrote new suggestion...");
-        }
-        else {
-          reject(Error("Failed to write new suggestion..."));
-        }
-      });
-      promise.then(function(result) {
-        this.emit(':tellWithCard', speech + cuisine, SKILL_NAME, cuisine);
-      }, function(err) {
+      // rocket keeps the scope of 'this' when
+      // passing the callback to writeNewSuggestions
+      writeNewSuggestions(ddbClient, ddbTable, userId, cuisine, () => {
+        console.log('Callback fired, sending tellWithCard...');
         this.emit(':tellWithCard', speech + cuisine, SKILL_NAME, cuisine);
       });
     },
@@ -44,7 +36,7 @@ var getSpeech = function() {
   return phrases[Math.floor(Math.random()*phrases.length)];
 };
 
-var writeNewSuggestions = function(ddbClient, ddbTable, userId, cuisine) {
+var writeNewSuggestions = function(ddbClient, ddbTable, userId, cuisine, callback) {
   var payload = {
     Key: {
       userId: userId
@@ -64,10 +56,10 @@ var writeNewSuggestions = function(ddbClient, ddbTable, userId, cuisine) {
     console.log("ddbClient.update fired...");
     if (err) {
       console.error("Unable to update. Error:  ", JSON.stringify(err));
-      return false;
+      callback();
     } else {
       console.log("Update succeeded:  ", JSON.stringify(data));
-      return true;
+      callback();
     }
   });
 };
