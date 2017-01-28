@@ -99,9 +99,14 @@ var readLastSuggestions = function(ddbClient, ddbTable, userId, callback) {
       console.error("Unable to read. Error:  ", JSON.stringify(err));
       callback(false);
     } else {
-      console.log("Read succeeded:  ", JSON.stringify(data));
-      lastCuisine = data.Item.lastCuisine;
-      callback(lastCuisine);
+      if (data) {
+        console.log("Read succeeded:  ", JSON.stringify(data));
+        lastCuisine = data.Item.lastCuisine;
+        callback(lastCuisine);
+      } else {
+        console.log("Read succeeded, but no user data found.");
+        callback(false);
+      }
     }
   });
 };
