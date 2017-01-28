@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 module.exports = function (userId, ddbClient, ddbTable) {
   return {
     'LaunchRequest': function () {
