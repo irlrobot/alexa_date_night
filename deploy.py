@@ -37,7 +37,7 @@ def publish_new_version(artifact, func_name):
 def main():
     " Your favorite wrapper's favorite wrapper "
     print('Starting deploy...')
-    if not publish_new_version('alexa.zip', 'AlexaDateNight'):
+    if not publish_new_version('../lambda.zip', 'AlexaDateNight'):
         print('Failed to deploy!')
         sys.exit(1)
 
